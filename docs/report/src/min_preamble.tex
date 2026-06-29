@@ -1,0 +1,223 @@
+\usepackage{makecell}
+\usepackage{enumitem}
+\usepackage{multirow}
+\usepackage[para,online,flushleft]{threeparttable}
+\usepackage{caption}
+\geometry{left=30mm, right=15mm, top=20mm, bottom=20mm}
+
+
+% Заголовки \chapter* по центру печатной области (в bmstu дают лишний \parindent слева)
+\titleformat{name=\chapter,numberless}[block]{}{}{0pt}{\large\bfseries\centering}
+\titlespacing{name=\chapter,numberless}{0pt}{-22pt}{10pt}
+
+\DeclareNameAlias{byauthor}{family-given}
+\ExecuteBibliographyOptions{
+    maxbibnames=3,   % Максимум авторов до сокращения в библиографии
+    minbibnames=3,   % Сокращаем до 3 имён + "и др."
+}
+
+% Работа с изображениями и таблицами; переопределение названий по ГОСТу
+\captionsetup[table]{singlelinecheck=false, labelsep=endash}
+\captionsetup[table]{justification=raggedright,singlelinecheck=off}
+\captionsetup{labelsep=endash}
+\captionsetup[figure]{name={Рисунок}}
+\captionsetup[lstlisting]{justification=raggedright,singlelinecheck=off} % Работа с листингом
+
+% Отточия у глав
+\makeatletter
+\renewcommand*{\l@chapter}[2]{
+\ifnum \c@tocdepth>\m@ne
+    \addpenalty{-\@highpenalty}
+    \vskip 1em \@plus.2em
+    \@dottedtocline{0}{0pt}{1.5em}{\bfseries #1}{\bfseries #2}
+\fi
+}
+\makeatother
+
+\renewcommand*{\arraystretch}{1} % математические матрицы интервал между строками
+
+% \usepackage{ulem} % Нормальное нижнее подчеркивание
+% \usepackage{hhline} % Двойная горизонтальная линия в таблицах
+% \usepackage[figure,table]{totalcount} % Подсчет изображений, таблиц
+% \usepackage{rotating} % Поворот изображения вместе с названием
+% \usepackage{lastpage} % Для подсчета числа страниц
+
+% Дополнительное окружения для подписей
+% \usepackage{array}
+% \newenvironment{signstabular}[1][1]{
+%       \renewcommand*{\arraystretch}{#1}
+%       \tabular
+% }{
+%       \endtabular
+% }
+
+% \usepackage{pgfplots}
+% \usetikzlibrary{datavisualization}
+% \usetikzlibrary{datavisualization.formats.functions}
+
+\usepackage[justification=centering]{caption} % Настройка подписей float объектов
+
+\newcommand{\code}[1]{\texttt{#1}}
+
+\usepackage{listings}
+% Для листинга кода:
+\lstset{%
+        language=python,                                           % выбор языка для подсветки
+        basicstyle=\small\sffamily,                     % размер и начертание шрифта для подсветки кода
+        numbersep=5pt,
+        numbers=none,                                           % где поставить нумерацию строк (слева\справа)
+        %numberstyle=,                                      % размер шрифта для номеров строк
+        stepnumber=1,                                           % размер шага между двумя номерами строк
+        xleftmargin=0pt,
+        showstringspaces=false,
+        numbersep=5pt,                                          % как далеко отстоят номера строк от подсвечиваемого кода
+        frame=single,                                           % рисовать рамку вокруг кода
+        tabsize=4,                                                      % размер табуляции по умолчанию равен 4 пробелам
+        captionpos=t,                                           % позиция заголовка вверху [t] или внизу [b]
+        breaklines=true,
+        breakatwhitespace=true,                         % переносить строки только если есть пробел
+        escapeinside={\#*}{*)},                         % если нужно добавить комментарии в коде
+        backgroundcolor=\color{white}
+}
+
+
+\usepackage{pdfpages}
+\usepackage{totcount}
+\usepackage{hyperref}
+\usepackage{lastpage}
+
+\lstset{
+        literate=
+        {а}{{\selectfont\char224}}1
+        {б}{{\selectfont\char225}}1
+        {в}{{\selectfont\char226}}1
+        {г}{{\selectfont\char227}}1
+        {д}{{\selectfont\char228}}1
+        {е}{{\selectfont\char229}}1
+        {ё}{{\"e}}1
+        {ж}{{\selectfont\char230}}1
+        {з}{{\selectfont\char231}}1
+        {и}{{\selectfont\char232}}1
+        {й}{{\selectfont\char233}}1
+        {к}{{\selectfont\char234}}1
+        {л}{{\selectfont\char235}}1
+        {м}{{\selectfont\char236}}1
+        {н}{{\selectfont\char237}}1
+        {о}{{\selectfont\char238}}1
+        {п}{{\selectfont\char239}}1
+        {р}{{\selectfont\char240}}1
+        {с}{{\selectfont\char241}}1
+        {т}{{\selectfont\char242}}1
+        {у}{{\selectfont\char243}}1
+        {ф}{{\selectfont\char244}}1
+        {х}{{\selectfont\char245}}1
+        {ц}{{\selectfont\char246}}1
+        {ч}{{\selectfont\char247}}1
+        {ш}{{\selectfont\char248}}1
+        {щ}{{\selectfont\char249}}1
+        {ъ}{{\selectfont\char250}}1
+        {ы}{{\selectfont\char251}}1
+        {ь}{{\selectfont\char252}}1
+        {э}{{\selectfont\char253}}1
+        {ю}{{\selectfont\char254}}1
+        {я}{{\selectfont\char255}}1
+        {А}{{\selectfont\char192}}1
+        {Б}{{\selectfont\char193}}1
+        {В}{{\selectfont\char194}}1
+        {Г}{{\selectfont\char195}}1
+        {Д}{{\selectfont\char196}}1
+        {Е}{{\selectfont\char197}}1
+        {Ё}{{\"E}}1
+        {Ж}{{\selectfont\char198}}1
+        {З}{{\selectfont\char199}}1
+        {И}{{\selectfont\char200}}1
+        {Й}{{\selectfont\char201}}1
+        {К}{{\selectfont\char202}}1
+        {Л}{{\selectfont\char203}}1
+        {М}{{\selectfont\char204}}1
+        {Н}{{\selectfont\char205}}1
+        {О}{{\selectfont\char206}}1
+        {П}{{\selectfont\char207}}1
+        {Р}{{\selectfont\char208}}1
+        {С}{{\selectfont\char209}}1
+        {Т}{{\selectfont\char210}}1
+        {У}{{\selectfont\char211}}1
+        {Ф}{{\selectfont\char212}}1
+        {Х}{{\selectfont\char213}}1
+        {Ц}{{\selectfont\char214}}1
+        {Ч}{{\selectfont\char215}}1
+        {Ш}{{\selectfont\char216}}1
+        {Щ}{{\selectfont\char217}}1
+        {Ъ}{{\selectfont\char218}}1
+        {Ы}{{\selectfont\char219}}1
+        {Ь}{{\selectfont\char220}}1
+        {Э}{{\selectfont\char221}}1
+        {Ю}{{\selectfont\char222}}1
+        {Я}{{\selectfont\char223}}1
+}
+
+\usepackage[listings]{tcolorbox}
+\tcbuselibrary{minted, breakable, skins}
+
+\newtcbinputlisting[auto counter,number within=chapter]{\mylisting}[4][]{
+        enhanced,
+        before skip=10pt,
+        arc=0mm,
+        boxrule=1pt,
+        listing only,
+        listing file={#1},
+        listing engine=listings,
+        listing options={
+                language=python,                                           % выбор языка для подсветки
+                basicstyle=\small\sffamily,                     % размер и начертание шрифта для подсветки кода
+                numbersep=5pt,
+                numbers=left,
+                numberstyle=\tiny,
+                breaklines=true,
+                numbersep=1.5mm,
+                % numbers=none,                                           % где поставить нумерацию строк (слева\справа)
+                %numberstyle=,                                      % размер шрифта для номеров строк
+                stepnumber=1,                                           % размер шага между двумя номерами строк
+                xleftmargin=0pt,
+                showstringspaces=false,
+                numbersep=5pt,                                          % как далеко отстоят номера строк от подсвечиваемого кода
+                frame=none,                                           % рисовать рамку вокруг кода
+                tabsize=4,                                                      % размер табуляции по умолчанию равен 4 пробелам
+                captionpos=t,                                           % позиция заголовка вверху [t] или внизу [b]
+                breaklines=true,
+                breakatwhitespace=true,                         % переносить строки только если есть пробел
+                escapeinside={\#*}{*)},                         % если нужно добавить комментарии в коде
+                backgroundcolor=\color{white}
+                #3
+        },
+        colback=white,
+        colframe=black,
+        breakable,
+        title={\parbox{\linewidth}{\raggedright Листинг~\thetcbcounter~--~#2}},
+        attach boxed title to top left,
+        boxed title style={
+                enhanced jigsaw,
+                opacityfill=1,
+                sharp corners,
+                boxrule=0pt,
+                left=-3pt,
+                right=0pt,
+                width=\linewidth,                  % разрешаем перенос заголовка
+        },
+        coltitle=black,
+        colbacktitle=white,
+        enlarge top at break by=5mm,
+        overlay first={
+                \draw[line width=.5pt] (frame.south west)--(frame.south east);
+        },
+        overlay middle={
+                \draw[line width=.5pt] (frame.south west)--(frame.south east);
+                \draw[line width=.5pt] (frame.north west)--(frame.north east);
+                \node[anchor=south west, inner xsep=0pt, xshift=0pt] at (frame.north west) {Продолжение листинга \thetcbcounter};
+        },
+        overlay last={
+                \draw[line width=.5pt] (frame.north west)--(frame.north east);
+                \node[anchor=south west, inner xsep=0pt, xshift=0pt] at (frame.north west) {Продолжение листинга \thetcbcounter};
+        },
+        #4
+}

@@ -1,0 +1,38 @@
+\documentclass{bmstu}
+
+\include{min_preamble}
+
+\bibliography{sources}
+
+\begin{document}
+
+\include{title}
+
+\include{referat}
+
+\include{content}
+
+\include{definitions}
+
+% Введение
+\include{main/01-intro}
+
+% Основная часть
+\include{main/02-analitic}
+\include{main/03-construct}
+\include{main/04-technological}
+\include{main/05-research}
+
+% Заключение
+\include{main/06-conclusion}
+
+% Список использованных источников
+\makebibliography
+
+% Приложения
+\include{appendix/appendixA}
+\include{appendix/appendixB}
+
+% \includepdf[pages={-}, angle=90]{../../pres/pres.pdf}
+
+\end{document}

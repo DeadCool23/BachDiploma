@@ -1,0 +1,1 @@
+from artifacts_fixes.color_artifacts.fix_by_histogram import fix_by_histogram

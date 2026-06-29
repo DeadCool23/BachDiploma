@@ -1,0 +1,1 @@
+from services.images_scale_services.tandem_scale_service import TandemImageScaleService
